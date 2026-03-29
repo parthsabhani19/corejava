@@ -129,6 +129,9 @@ public class Variables {
      *
      * Immutability
      * An immutable object cannot be changed after creation.
+     * <p>
+     * String is immutable
+     * .concat() creates a new object, doesn’t modify old one
      */
 
     public static void immutability()
@@ -138,4 +141,101 @@ public class Variables {
 
         System.out.println("firstName: " + firstName); // still "Parth"
     }
+
+    /**
+     *
+     * Why Immutability Matters?
+     * <p>
+     * Thread-safe (no synchronization needed)
+     * Secure (used in passwords, tokens)
+     * Memory efficient (String Pool)
+     */
+
+    /**
+     *
+     * String Pool (Memory Optimization)
+     * Java stores strings in a special memory area inside heap
+     */
+
+    String nameOne = "Prince";
+    String nameTwo = "Prince";  // both point to same object
+
+    // but
+
+    String nameThree = new String("Devam");
+    String nameFour = new String("Devam"); // two different objects
+
+    /**
+     *
+     * Pass by Value
+     * Java is always pass-by-value
+     *
+     *
+     */
+
+    // original value not change
+    void change(int x) {
+        x = 50;
+    }
+
+    /**
+     *
+     * Wrapper Classes (Primitive → Object)
+     * <p>
+     * int -> Integer
+     * double -> Double
+     * char -> Character
+     */
+
+    Integer integer = 10; // Autoboxing
+    int in = a; // Unboxing
+
+    /**
+     * Collections only work with objects
+     * List<Integer> list = new ArrayList<>();
+     */
+
+    /**
+     * var Keyword (Java 10+)
+     * Compiler infers type
+     */
+
+     void varTest()
+     {
+         var name = "Krish";
+     }
 }
+
+/**
+ * Value changes because reference is passed by value
+ * <p>
+ * Note: Java passes a copy of the reference, not the object itself.
+ */
+
+/*
+class User {
+    int age;
+}
+
+void change(User u) {
+    u.age = 30;
+}
+ */
+
+
+/**
+ * Variable Shadowing
+ * Local variable overrides instance variable
+ */
+
+/*
+class Test {
+    int x = 10;
+
+    void show() {
+        int x = 20;
+        System.out.println(x); // 20
+        System.out.println(this.x); // 10 -> access instance variable
+    }
+}
+ */
